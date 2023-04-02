@@ -65,11 +65,13 @@ Ha mondjuk egy hagyományos 10 széles pályát egy lépéssel 3 sort eltüntet�
 
 Az alapértelmezett jutalom megegyezik a pontokkal.
 
-# Telepítés
+# Telepítés és futtatás
 
 A rendszer egyaránt használható google colabon és hagyományos számítógépeken. A környezet egy átlagos laptop processzorán is kényelmesen futtatható.
 
-Az alábbi példában [conda](https://docs.conda.io/en/latest/) virtuális környezetet fogunk használni.
+Példa [colab notebook](https://colab.research.google.com/drive/1ql97tMmdBu_349S6cxWMBxbeMUcoPr7v?usp=sharing).
+
+Az alábbi útmutatóban [conda](https://docs.conda.io/en/latest/) virtuális környezetet fogunk használni.
 
 Conda környezet létrehozása:
 
@@ -84,6 +86,8 @@ Rendszer letöltése és a csomagok telepítése:
 git clone https://github.com/szegedai/tetris_gym_szte.git
 
 cd tetris_gym_szte
+
+pip install setuptools==65.5.0
 
 pip install -r requirements.txt
 ```
