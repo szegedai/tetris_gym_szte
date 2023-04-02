@@ -100,4 +100,4 @@ Hamarosan.
 
 ## Köszönenyílvánítás
 
-Köszönet  [Viet Nguyen])(https://github.com/uvipen)-nek a tetris környezet alapjaiért.
+Köszönet  [Viet Nguyen](https://github.com/uvipen)-nek a tetris környezet alapjaiért.
