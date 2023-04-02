@@ -1,0 +1,6 @@
+setuptools==65.5.0
+gym==0.21
+stable-baselines3==1.7.0
+opencv-python==4.7.0.72
+matplotlib==3.7.1
+matplotlib-inline==0.1.6
