@@ -61,7 +61,7 @@ Minden lerakott elem 1 pontot ér. Ha egy lerakott elem hatására eltűnnek sor
 $$ score = 1 + clearedLines^2 * boardWidth $$
 
 Ahol a *clearedLines* az eltűntetett sorok számát a *boardWidth* pedig a pálya méretét jelenti.
-Ha mondjuk egy hagyományos 10 széles pályát egy lépéssel 3 sort eltüntetünk, akkor $ 1 + 3^2 * 10 = 91 $ pontot kapunk.
+Ha mondjuk egy hagyományos 10 széles pályát egy lépéssel 3 sort eltüntetünk, akkor $1 + 3^2 * 10 = 91$ pontot kapunk.
 
 Az alapértelmezett jutalom megegyezik a pontokkal.
 
