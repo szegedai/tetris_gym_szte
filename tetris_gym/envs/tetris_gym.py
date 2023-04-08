@@ -12,8 +12,9 @@ class TetrisGym(Tetris, gym.Env):
                  width=10,
                  pieces=["O", "I", "T", "S", "Z", "L", "J"],
                  block_size=20,
-                 max_steps=1000):
-        super().__init__(height, width, pieces, block_size)
+                 max_steps=1000,
+                 seed=42):
+        super().__init__(height, width, pieces, block_size, seed)
 
         self.max_steps = max_steps
 

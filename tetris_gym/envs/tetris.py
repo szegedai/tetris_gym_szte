@@ -58,7 +58,8 @@ class Tetris():
                  height=20,
                  width=10,
                  pieces=["O", "I", "T", "S", "Z", "L", "J"],
-                 block_size=20):
+                 block_size=20,
+                 seed=42):
         self.height = height
         self.width = width
         self.block_size = block_size
@@ -72,6 +73,11 @@ class Tetris():
 
         self.extra_board = np.ones((self.height * self.block_size, 10 * int(self.block_size / 2), 3),
                                    dtype=np.uint8) * np.array(self.extra_board_color, dtype=np.uint8)
+        
+        self.seed(seed)
+
+        self.random = random.Random(seed)
+
         self.reset()
 
     def reset(self):
@@ -80,7 +86,7 @@ class Tetris():
         self.tetrominoes = 0
         self.cleared_lines = 0
         self.bag = list(range(len(self.pieces)))
-        random.shuffle(self.bag)
+        self.random.shuffle(self.bag)
         self.ind = self.bag.pop()
         self.piece = [row[:] for row in self.pieces[self.ind]]
         self.current_pos = {"x": self.width // 2 - len(self.piece[0]) // 2, "y": 0}
@@ -161,7 +167,7 @@ class Tetris():
     def new_piece(self):
         if not len(self.bag):
             self.bag = list(range(len(self.pieces)))
-            random.shuffle(self.bag)
+            self.random.shuffle(self.bag)
         self.ind = self.bag.pop()
         self.piece = [row[:] for row in self.pieces[self.ind]]
         self.current_pos = {"x": self.width // 2 - len(self.piece[0]) // 2,
