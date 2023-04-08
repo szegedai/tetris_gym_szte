@@ -26,7 +26,7 @@ class ExtendedObservationWrapper(gym.ObservationWrapper):
                 dtype=int,
             )
         })
-        
+       
     def observation(self, obs):
 
         board = obs["board"]
