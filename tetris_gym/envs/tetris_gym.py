@@ -1,5 +1,5 @@
-import gym
-from gym import spaces
+import gymnasium as gym
+from gymnasium import spaces
 import numpy as np
 
 from tetris_gym.envs.tetris import Tetris
@@ -13,19 +13,22 @@ class TetrisGym(Tetris, gym.Env):
                  pieces=["O", "I", "T", "S", "Z", "L", "J"],
                  block_size=20,
                  max_steps=1000,
-                 seed=42):
+                 seed=42,
+                 render_mode="rgb_array"):
         super().__init__(height, width, pieces, block_size, seed)
 
         self.max_steps = max_steps
 
         self.step_counter = 0
+
+        self.render_mode = render_mode
     
-    def reset(self):
-        super().reset()
+    def reset(self, seed=42, options=None):
+        super().reset(seed)
 
         self.step_counter = 0
 
-        return self.get_observations()
+        return self.get_observations(), None
 
     def step(self, action):
         column, rotation = action
@@ -48,10 +51,11 @@ class TetrisGym(Tetris, gym.Env):
 
         done = res[1]
 
+        truncated = False
         if self.step_counter >= self.max_steps:
-          done = True
+          truncated = True
 
-        return self.get_observations(), res[0], done, {}
+        return self.get_observations(), res[0], done, truncated, {}
     
     def get_observations(self):
         bin_board = binarize_board(self.board)
@@ -74,7 +78,7 @@ class TetrisGym(Tetris, gym.Env):
                 shape=(self.height, self.width),
                 dtype=np.uint8,
             ),
-            "piece": spaces.Discrete(7),
+            "piece": spaces.Discrete(len(self.pieces)),
 
         })
 

@@ -21,10 +21,23 @@ class Tetris():
         "Z": (255, 0, 0),
         "I": (102, 217, 238),
         "L": (254, 151, 32),
-        "J": (0, 0, 255)
+        "J": (0, 0, 255),
+        "3I": (102, 217, 238),
+        "3L": (254, 151, 32),
+        "2": (200, 200, 200),
+        "1": (150, 150, 150)
     }
 
     piece_dict = {
+        "1": [[1]],
+
+        "2": [[1, 1]],
+
+        "3I": [[1, 1, 1]],
+
+        "3L": [[1, 0],
+               [1, 1]],
+
         "O": [[1, 1],
               [1, 1]],
 
@@ -74,18 +87,15 @@ class Tetris():
         self.extra_board = np.ones((self.height * self.block_size, 10 * int(self.block_size / 2), 3),
                                    dtype=np.uint8) * np.array(self.extra_board_color, dtype=np.uint8)
         
-        self.seed(seed)
+        self.reset(seed=seed)
 
-        self.random = random.Random(seed)
-
-        self.reset()
-
-    def reset(self):
+    def reset(self, seed=42, options=None):
         self.board = [[0] * self.width for _ in range(self.height)]
         self.score = 0
         self.tetrominoes = 0
         self.cleared_lines = 0
         self.bag = list(range(len(self.pieces)))
+        self.random = random.Random(seed)
         self.random.shuffle(self.bag)
         self.ind = self.bag.pop()
         self.piece = [row[:] for row in self.pieces[self.ind]]
