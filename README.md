@@ -6,7 +6,7 @@ Egy lépésben két paramétert kell beállítanunk, hogy melyik oszlopba rakjuk
 
 
 <p align="center">
-  <img src="docs/media/polyois_sample.mp4" width=400><br/>
+  <img src="docs/media/polyois_sample.gif" width=300><br/>
 </p>
 
 # Polyois
@@ -19,7 +19,7 @@ Hagyományos tetrisben bárki kipróbálhatja például az alábbi oldalon: [tet
 
 A környezetben szereplő polyominokat névvel ellátva az alábbi ábra tartalmatta:
 <p align="center">
-  <img src="docs/media/polyois_names.png"><br/>
+  <img src="docs/media/polyois_names.png" width=400><br/>
 </p>
 
 
@@ -30,7 +30,7 @@ A környezetben minden lépés egy elemleejtése a tábla tetejéről.
 |   |   |
 |-------------------|------------------------------|
 | Action space      | <pre>MultiDiscrete([*boardWidth*  4])</pre> |
-| Observation space | <pre>Dict(<br>  board: Box(0, 1, (*boardHeight*, *boardWidth*))<br>  piece: Discrete(7)<br>)</pre>|
+| Observation space | <pre>Dict(<br>  board: Box(0, 1, (*boardHeight*, *boardWidth*))<br>  piece: Discrete(*polyominoNumber*)<br>)</pre>|
 
 Ahol a *boardWidth* és *boardHeight* a tábla szélességét és magásságát jelölik.
 
