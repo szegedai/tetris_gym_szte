@@ -10,7 +10,7 @@ class TetrisGym(Tetris, gym.Env):
     def __init__(self,
                  height=20,
                  width=10,
-                 pieces=["O", "I", "T", "S", "Z", "L", "J"],
+                 pieces=["1", "2", "3_I", "3_L", "4_O", "4_T", "4_S", "4_Z", "4_I", "4_L", "4_J", "5_1", "5_2", "5_3", "5_4"],
                  block_size=20,
                  max_steps=1000,
                  seed=42,

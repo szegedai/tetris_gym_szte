@@ -1,23 +1,25 @@
 # Megerősítéses tanulás kötelező program
 
-A feladat egy tetris ágens készítése. A játék a tetris egy egyszerűsített változata, ahol minden lépésben egy elemet kell ledobnunk.
+A feladat egy alternatív tetris ágens készítése. A Polyois a tetris egy módosított változata, ahol minden lépésben egy elemet kell ledobnunk.
 
 Egy lépésben két paramétert kell beállítanunk, hogy melyik oszlopba rakjuk le az elemet, és, hogy az elem a 4 forgatási iránya közül melyikbe álljon.
 
+
 <p align="center">
-  <img src="docs/media/tetris_sample.gif" width=400><br/>
+  <img src="docs/media/polyois_sample.mp4" width=400><br/>
 </p>
 
-# Tetris
+# Polyois
 
-A tetris lényege, hogy a kjelzőn fentről lefele haladó 7 féle tetromino elemet úgy helyezzük el, hogy azok minél kevesebb lyukat hadjanak egymás között. Ha egy sor minden eleme lefedésre kerül, akkor az a sor eltűnik, több helyet hagyva az új elemek elhelyezésére. [Részletes szabályok](https://tetris.wiki/Tetris_Guideline).
+A hagyományos tetrisszel szemben itt nem csak 4 négyzetből elemből állhatnak a leérkező darabok, hanem 1, 2, 3, 4, 5 darabból is.
+A játék lényege, hogy a leérkező elemeket úgy helyezzük el, hogy azok minél kevesebb lyukat hadjanak egymás között. Ha egy sor minden eleme lefedésre kerül, akkor az a sor eltűnik, több helyet hagyva az új elemek elhelyezésére. [Részletes szabályok](https://tetris.wiki/Tetris_Guideline).
 
-A játékot bárki kipróbálhatja például az alábbi oldalon: [tetr.io](https://tetr.io/)
+Hagyományos tetrisben bárki kipróbálhatja például az alábbi oldalon: [tetr.io](https://tetr.io/)
 
 
-A 7 féle tetromino-t névvel ellátva az alábbi ábra tartalmatta:
+A környezetben szereplő polyominokat névvel ellátva az alábbi ábra tartalmatta:
 <p align="center">
-  <img src="docs/media/tetromino_names.png"><br/>
+  <img src="docs/media/polyois_names.png"><br/>
 </p>
 
 
@@ -39,7 +41,7 @@ Akciók:
 Megfigyelések:
  - A megfigyeléseket egy Dictionary-ben kapjuk meg, aminek két kulcsa van: a *board* és a *piece*.
  - A *board* egy 2 dimenziós tömbben tartalmazza a jelenlegi táblát, ami 0, ha a mező még üres és 1, ha már tettünk oda elemet.
- - A *piece* egy egész szám, ami a lerakandó tetromino azonosítóját tartalmazza, a az értéke 0-tól az elemek száma - 1 tart. Mivel az elemek száma környezetenként eltérhez, ezért egy adott tertominohoz külön környezetekben külön azonosítók tartozhatnak.
+ - A *piece* egy egész szám, ami a lerakandó tetromino azonosítóját tartalmazza, az értéke 0-tól az elemek száma - 1 tart. Mivel az elemek száma környezetenként eltérhez, ezért egy adott tertominohoz külön környezetekben külön azonosítók tartozhatnak.
  - Mivel a környezet egy Dictionary-ben tér vissza az elemekkel a *stable-baselines3* esetén alapértelmezettként a [MultiInputPolicy](https://stable-baselines3.readthedocs.io/en/master/modules/ppo.html#stable_baselines3.ppo.MultiInputPolicy) használata ajánlott. (Lásd: példa kódok)
 
  A környezet a *TetrisGym* osztállyal példányosítható, az alábbi módon:
@@ -76,7 +78,7 @@ Az alábbi útmutatóban [conda](https://docs.conda.io/en/latest/) virtuális k�
 Conda környezet létrehozása:
 
 ```bash
-conda create -n tetris_gym python=3.10
+conda create -n tetris_gym python=3.11
 conda activate tetris_gym
 ```
 
@@ -86,8 +88,6 @@ Rendszer letöltése és a csomagok telepítése:
 git clone https://github.com/szegedai/tetris_gym_szte.git
 
 cd tetris_gym_szte
-
-pip install setuptools==65.5.0
 
 pip install -r requirements.txt
 ```
@@ -157,19 +157,19 @@ A kiértékelő rendszerben az alábbi csomagok vannak telepítve.
 
 A ranglista és a feltöltés az alábbi oldalon érhető el:
 
-[https://chatbot-rgai3.inf.u-szeged.hu/rl/](https://chatbot-rgai3.inf.u-szeged.hu/rl/)
+[https://ai.inf.u-szeged.hu/rl/](https://ai.inf.u-szeged.hu/rl/)
 
 ## Feltöltés
 
-Az elkészült kódokat fel kell tötenetek HuggingFace-re. Majd, ha úgyérzitek, hogy minden rendben van, akkor a [ranglista oldalán](https://chatbot-rgai3.inf.u-szeged.hu/rl/upload/) tudjátok elindítani a hivatalos kiértékelést. Ehhez meg kell adnotok a HuggingFace repository nevét, ahova feltöltöttétek a kódotokat és a modelleket, a neptun azonosítótokat és egy megjelenítéshez használni kívánt nevet.
+Az elkészült kódokat fel kell tötenetek HuggingFace-re. Majd, ha úgyérzitek, hogy minden rendben van, akkor a [ranglista oldalán](https://ai.inf.u-szeged.hu/rl/upload/) tudjátok elindítani a hivatalos kiértékelést. Ehhez meg kell adnotok a HuggingFace repository nevét, ahova feltöltöttétek a kódotokat és a modelleket, a neptun azonosítótokat és egy megjelenítéshez használni kívánt nevet.
 
-A HuggingFace repository-ba mindent fel kell tölteni, ami szükséges a kód futtatásához. Ez magában foglalja a kódokat és a szükséges modelleket. Az *agent.py*-nak a repository gyökérkönyvtárában kell lennie. Példát erre az alábbi repository-ban találtok: [szterlcourse/tetris_example](https://huggingface.co/szterlcourse/tetris_example/tree/main)
+A HuggingFace repository-ba mindent fel kell tölteni, ami szükséges a kód futtatásához. Ez magában foglalja a kódokat és a szükséges modelleket. Az *agent.py*-nak a repository gyökérkönyvtárában kell lennie. Példát erre az alábbi repository-ban találtok: [SzegedRLCourse/my_alternative_tetris_agent](https://huggingface.co/SzegedRLCourse/my_alternative_tetris_agent/tree/main)
 
 ### Példa
 
 Az alábbi [notebook](https://colab.research.google.com/drive/1iO9J_VzrtSIVcjC5a3q-9pk9UtfHX1SZ?usp=sharing), illetve a lenti parancsok megmutatják hogyan tudtok betanítani, leellenőrizni és feltöteni a Hugging Face-re egy ágenst.
 
-A modellt betíníthatod a [trani.py](train.py) fájl segítségével, ez létre fog hozni egy modellt az *agent* mappában.
+A modellt betíníthatod a [train.py](train.py) fájl segítségével, ez létre fog hozni egy modellt az *agent* mappában.
 ```bash
 python train.py
 ```
@@ -187,7 +187,7 @@ Ehhez viszont először meg kell adnod a fájlban a létrehozni (vagy felülírn
 
 ```python
 # Ezt át kell írni a saját felhasználónevedre és az általad választott repó nevére
-# Pl.: "szterlcourse/my_agent"
+# Pl.: "SzegedRLCourse/my_alternative_tetris_agent"
 repo_id = ""
 
 # Ide be kell írni a saját tokenedet, amit a Hugging Face oldalán tudsz létrehozni (https://huggingface.co/settings/token)
@@ -205,14 +205,12 @@ A feltöltést kézzel is megteheted, de ezekben van arra példa, hogy hogyan le
 
 Az utolsó feltöltés log-ját a neptun kódotok segítségébvel az alábbi link módosításával tudjátok megnézni:
 
-[https://chatbot-rgai3.inf.u-szeged.hu/rl/log/\<NEPTUNKOD\>/](https://chatbot-rgai3.inf.u-szeged.hu/rl/log/NEPTUNKOD/)
+[https://ai.inf.u-szeged.hu/rl/log/\<NEPTUNKOD\>/](https://ai.inf.u-szeged.hu/rl/log/NEPTUNKOD/)
 
 Fontos, hogy a záró / szükséges.
 
 # Követelmények
-A kötelező programért szerezhető 30 pont begyűjtéséhez fel kell töltened egy rendszert, ami a szerveren történő kiértékeléskor legalább 40 score-t ér el.
-
-A legjobb 5 felöltő mentesül az elméleti zh alól.
+A kötelező programért szerezhető pontok begyűjtéséhez fel kell töltened egy rendszert, ami a szerveren történő kiértékeléskor legalább 40 score-t ér el.
 
 A további helyezések extra pluszpontokat érnek, amiknek a pontos szabályait a későbbiekben részletezzük.
 
