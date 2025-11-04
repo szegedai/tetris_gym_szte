@@ -48,13 +48,13 @@ Megfigyelések:
  ```python
  from tetris_gym.envs.tetris_gym import TetrisGym
 
- env = TetrisGym(width=6, height=14, pieces=["O", "I", "J", "L"])
+ env = TetrisGym(width=6, height=14, pieces=["1", "2", "3_I", "3_L"])
  ```
 
  Ahol a 3 játékmenet befolyásoló paraméter az alábbiak:
   - *width*: a tábla szélessége
   - *height*: a tábla magassága
-  - *pieces*: A játékban használható tetrominok neve, lehetséges értékek: *O, I, J, L, T, S, Z*
+  - *pieces*: a játékban használható tetrominok neve, a lehetséges értékei a fenti képen láthatók
 
 # Pontszámítás
 
@@ -71,7 +71,7 @@ Az alapértelmezett jutalom megegyezik a pontokkal.
 
 A rendszer egyaránt használható google colabon és hagyományos számítógépeken. A környezet egy átlagos laptop processzorán is kényelmesen futtatható.
 
-Példa [colab notebook](https://colab.research.google.com/drive/1ql97tMmdBu_349S6cxWMBxbeMUcoPr7v?usp=sharing).
+Példa [colab notebook](https://colab.research.google.com/drive/1JlEXAk54XTNbvyeXfAmu_TQzShtk8ybV?usp=sharing).
 
 Az alábbi útmutatóban [conda](https://docs.conda.io/en/latest/) virtuális környezetet fogunk használni.
 
@@ -100,7 +100,7 @@ python example.py
 
 # Kiértékelés és követelmények
 
-A végleges környezet a hagyományos Tetris játékhoz hasonlóan 10 széles és 20 magas táblát használ, a környezetben mind a 7 féle tetromino-t használjuk.
+A verseny környezet 8 széles és 16 magas táblát használ, a környezetben az *1, 2, 3_I, 3_L, 4_I, 4_T, 4_O, 5_2, 5_3* polyominok vannak használva.
 
 Az ágenst a [agent/agent.py](agent/agent.py) fájlban kell megvalósítani. Ezt fogja meghívni a végleges kiértékelő rendszer.
 
@@ -125,7 +125,7 @@ class Agent:
         vagy a környezet wrapper-ekkel való kiterjesztésére.
         """
         
-        self.model = A2C.load("agent/model_20x10")
+        self.model = A2C.load("agent/model_tetris")
         
         # A környezetet kiterjeszthetjük wrapper-ek segítségével.
         # Ha tanításkor modosítottuk a megfigyeléseket,
