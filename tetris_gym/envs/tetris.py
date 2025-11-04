@@ -101,9 +101,9 @@ class Tetris():
     extra_board_color = (255, 255, 255)
 
     def __init__(self,
-                 height=20,
-                 width=10,
-                 pieces=["1", "2", "3_I", "3_L", "4_O", "4_T", "4_S", "4_Z", "4_I", "4_L", "4_J", "5_1", "5_2", "5_3", "5_4"],
+                 height=16,
+                 width=8,
+                 pieces=["1", "2", "3_I", "3_L", "4_I", "4_T", "4_O", "5_2", "5_3"],
                  block_size=20,
                  seed=42):
         self.height = height

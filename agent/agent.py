@@ -12,7 +12,7 @@ class Agent:
         vagy a környezet wrapper-ekkel való kiterjesztésére.
         """
         
-        self.model = A2C.load("agent/model_20x10")
+        self.model = A2C.load("agent/model_tetris")
         
         # A környezetet kiterjeszthetjük wrapper-ek segítségével.
         # Ha tanításkor modosítottuk a megfigyeléseket,

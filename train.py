@@ -4,7 +4,7 @@ from tetris_gym.wrappers.observation import ExtendedObservationWrapper
 from tetris_gym.utils.eval_utils import evaluate, create_videos
 
 # Környezet létrehozása
-env = TetrisGym(width=10, height=20)
+env = TetrisGym(width=8, height=16)
 
 # A megfigyelések kiterjesztése a tábla alapján számolt új jellemzők segítségével.
 env = ExtendedObservationWrapper(env)
@@ -15,10 +15,10 @@ model = A2C('MultiInputPolicy',  env, verbose=1, seed=42)
 print(model.policy)
 
 # Tanulás
-model.learn(total_timesteps=100000)
+model.learn(total_timesteps=40000)
 
 # Model kimentése
-model.save("agent/model_20x10")
+model.save("agent/model_tetris")
 
 # Kiértékelés 10 véletlen környezetben
 score = evaluate(env, model, 10)

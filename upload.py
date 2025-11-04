@@ -3,7 +3,7 @@ from huggingface_hub import HfApi
 api = HfApi()
 
 # Ezt át kell írni a saját felhasználónevedre és az általad választott repó nevére
-# Pl.: "szterlcourse/my_agent"
+# Pl.: "szegedrlcourse/my_alternative_tetris_agent"
 repo_id = ""
 
 # Ide be kell írni a saját tokenedet, amit a Hugging Face oldalán tudsz létrehozni (https://huggingface.co/settings/token)
