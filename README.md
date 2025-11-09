@@ -210,7 +210,7 @@ Az utolsó feltöltés log-ját a neptun kódotok segítségébvel az alábbi li
 Fontos, hogy a záró / szükséges.
 
 # Követelmények
-A kötelező programért szerezhető pontok begyűjtéséhez fel kell töltened egy rendszert, ami a szerveren történő kiértékeléskor legalább 40 score-t ér el.
+A kötelező programért szerezhető pontok begyűjtéséhez fel kell töltened egy rendszert, ami a szerveren történő kiértékeléskor legalább 32 score-t ér el.
 
 A további helyezések extra pluszpontokat érnek, amiknek a pontos szabályait a későbbiekben részletezzük.
 
