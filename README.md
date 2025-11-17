@@ -196,7 +196,7 @@ token = ""
 
 Ha ezek megvannak, akkor a fájl futtatásával feltöltheted a Hugging Face-re a kódot és a modelleket.
 ```bash
-python evaluate.py
+python upload.py
 ```
 
 A feltöltést kézzel is megteheted, de ezekben van arra példa, hogy hogyan lehet kódból létrehozni egy Hugging Face repository-t és feltölteni bele a kódot és a modelleket.
